@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>411 Project Demo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+     <nav>
+        <a href="/">Home</a>
+        <a href="/user">User</a>
+        <a href="/review">Reviews</a>
+       </nav>
+
+       <div class="container mt-4"  style="text-align: center;">
+        <h2> <%= data3[0].DeptId%><%= data3[0].Number%>- <%=data3[0].Title%> </h2>
+
+       <h3> Overall Course Ratings </h3>
+       <% if(data2.length){ for(var i = 0; i< data2.length; i++) {%>
+
+       <div class="container mt-4" >
+        <table class="table">
+          <thead>
+            <tr>
+             <th> 
+              <th>Instructor </th>
+              <th>Difficulty Rating (1-10) </th>
+              <th>Practicality Rating (1-10)</th>
+              <th>Workload (hrs/week)</th>
+              <th>Course Rating (1-10)</th>
+              <th>Difficulty Level </th>
+              <th>Avg GPA </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><%=(i+1)%></th>
+              <td><%= data2[i].Name%></td>
+              <td><%= data3[0].Practical_rating%></td>
+              <td><%= data3[0].Difficulty_rating%></td>
+              <td><%= data3[0].Workload_hours%></td>
+              <td><%= data3[0].Course_rating%></td>
+              <td><%= data2[i].diff%></td>
+              <td><%= data2[i].gpa%></td>
+
+                </tr>
+                </tbody>
+                </table>
+             </div>
+            <% } }else{ %>
+            <h4>No reviews for this course yet.</h4>
+            <% } %>
+          
+      <h3> Reviews </h3>
+      <div class="container mt-4">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Review</th>
+              <th>Difficulty Rating (1-10) </th>
+              <th>Practicality Rating (1-10)</th>
+              <th>Workload (hrs/week)</th>
+              <th>Course Rating (1-10)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(data.length){ for(var i = 0; i< data.length; i++) {%>
+            <tr>
+              <th scope="row"><%=(i+1)%></th>
+              <td><%= data[i].Review%></td>   
+              <td><%= data[i].Practical_rating%></td>
+              <td><%= data[i].Difficulty_rating%></td>
+              <td><%= data[i].Workload_hours%></td>
+              <td><%= data[i].Course_rating%></td>
+            </tr>
+            <% } }else{ %>
+            <tr>
+              <td>No reviews for this course yet.</td>
+            </tr>
+            <% } %>
+          </tbody>
+          </tbody>
+        </table>
+      </div>
+       </div>
+</body>
+
+</html>
